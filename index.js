@@ -31,6 +31,8 @@ function getRandomCard() {
 }
 
 function startGame() {
+    sum = 0
+    dealerSum = 0
     //create deck of cards
     createDeck()
     
@@ -42,7 +44,7 @@ function startGame() {
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
-    sum = firstCard + secondCard
+    updateSum()
     
     //assign dealer card
     let firstDealerCard = getRandomCard()
@@ -147,16 +149,16 @@ function dealerTurn() {
         //check for aces
         if (dealerSum > 21 && dealerCards.findIndex(findAce) != -1) {
             dealerCards.splice(cards.findIndex(findAce), 1, 1)
+            updateDealerSum()
         }
-        updateDealerSum()
         renderGame()
     }
     
     //check result
     if (dealerSum > 21) {
-        message = "Dealer busts, " + player.name + " wins!"
+        message = "Dealer busts, Player wins!"
     } else if (sum > dealerSum) {
-        message = player.name + " wins!"
+        message = "Player wins!"
     } else if (sum == dealerSum) {
         message = "Push."
     } else if (sum < dealerSum) {
