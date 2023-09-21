@@ -87,6 +87,7 @@ function renderGame() {
     updateCards()
     //update sum and sum element
     updateSum()
+    updateDealerSum()
     
     //update message
     messageEl.textContent = message
@@ -123,7 +124,7 @@ function updateDealerSum() {
     for (let i = 0; i < dealerCards.length; i++) {
         dealerSum += dealerCards[i]
     }
-    dealerSumEl = "Sum: " + sum
+    dealerSumEl.textContent = "Sum: " + sum
 }
 
 function newCard() {
