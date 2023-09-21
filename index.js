@@ -124,14 +124,14 @@ function updateDealerSum() {
     for (let i = 0; i < dealerCards.length; i++) {
         dealerSum += dealerCards[i]
     }
-    dealerSumEl.textContent = "Sum: " + sum
+    dealerSumEl.textContent = "Sum: " + dealerSum
 }
 
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
         let card = getRandomCard()
-        sum += card
         cards.push(card)
+        updateSum()
         renderGame()        
     }
 }
