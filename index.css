@@ -8,6 +8,12 @@ body {
     margin: 5% auto;
 }
 
+#header {
+    font-size: 60px;
+    border-bottom: 5px solid ;
+    margin: 10px;
+}
+
 #game-area {
     display: inline-flex;
     flex-direction: column;
@@ -15,11 +21,6 @@ body {
     border: 10px double goldenrod;
     align-items: center;
     padding: 0 10px;
-}
-
-#logo {
-    width: 400px;
-    margin-top: 20px;
 }
 
 h1 {
@@ -57,7 +58,8 @@ button:hover {
 .stat-container {
     display: inline-flex;
     flex-direction: column;
+    width: 150px;
     border: 10px double black; 
-    margin: 10px 50px;
+    margin: 10px 10px;
     padding: 0 20px;
 }
