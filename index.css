@@ -15,6 +15,7 @@ body {
 }
 
 #game-area {
+    width: 500px;
     display: inline-flex;
     flex-direction: column;
     background: darkgreen;
@@ -41,6 +42,7 @@ button {
     font-weight: bold;
     border: 3px solid black;
     border-radius: 2px;
+    margin-bottom: 10px;
 }
 
 button:hover {
@@ -58,8 +60,35 @@ button:hover {
 .stat-container {
     display: inline-flex;
     flex-direction: column;
-    width: 150px;
+    justify-content: center;
+    width: 175px;
     border: 10px double black; 
     margin: 10px 10px;
     padding: 0 20px;
+}
+
+#cards-el {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+#dealer-cards-el {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.card-sprite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: red;
+    font-size: 24px;
+    width: 40px;
+    height: 60px;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 5px;
 }

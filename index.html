@@ -13,24 +13,23 @@
             <div class="player-dealer-stats">
                 <div class="stat-container">
                     <h3 id="title-el">Player</h3>
-                    <p id="cards-el">Cards:</p>
+                    <div id="cards-el"></div>
                     <p id="sum-el">Sum:</p>
                 </div>
                     
                 <div class="stat-container">
                     <h3>Dealer</h3>
-                    <p id="dealer-cards-el">Cards:</p>
+                    <div id="dealer-cards-el"></div>
                     <p id="dealer-sum-el">Sum:</p>
                 </div>
             </div>
             
             <div id="button-container">
-                <button onclick="startGame()">START GAME</button>
-                <button onclick="newCard()">NEW CARD</button>
-                <button onclick="dealerTurn()">STAY</button>
+                <button id="start-game-btn" onclick="startGame()">START GAME</button>
+                <button id="new-card-btn" onclick="newCard()">NEW CARD</button>
+                <button id="stay-btn" onclick="dealerTurn()">STAY</button>
             </div>
             
-             <p id="player-el"></p>
         </div>
         <script src="index.js"></script>
     </body>

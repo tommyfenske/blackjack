@@ -16,6 +16,9 @@ let cardsEl = document.getElementById("cards-el")
 let dealerCardsEl = document.getElementById("dealer-cards-el")
 let playerEl = document.getElementById("player-el")
 let titleEl = document.getElementById("title-el")
+let startGameBtn = document.getElementById("start-game-btn")
+let newCardBtn = document.getElementById("new-card-btn")
+let stayBtn = document.getElementById("stay-btn")
 
 function getRandomCard() {
     let cardIndex = Math.floor( Math.random() * deck.length )
@@ -51,6 +54,8 @@ function startGame() {
     dealerCards = [firstDealerCard]
     updateDealerSum()
     
+    hideStartBtn()
+
     renderGame()
 }
 
@@ -65,7 +70,6 @@ function createDeck() {
 
 function renderGame() {
     //update player card display
-    //update() cards
     
     //update dealer card display
     updateDealerCards()
@@ -75,12 +79,13 @@ function renderGame() {
     dealerSumEl.textContent = "Sum: " + dealerSum
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
-    } else if (sum === 21) {
+    } else if (sum == 21) {
         hasBlackJack = true
         dealerTurn()
     } else if (cards.findIndex(findAce) == -1) {    
-        message = "You're out of the game!"
+        message = "You busted!"
         isAlive = false
+        hideGameBtns()
     } else {  
         cards.splice(cards.findIndex(findAce), 1, 1)
     }
@@ -100,16 +105,16 @@ function findAce(cardNumber) {
 }
 
 function updateCards() {
-    cardsEl.textContent = "Cards: "
+    cardsEl.innerHTML = ""
     for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent += cards[i] + " "
+        cardsEl.innerHTML += `<div class="card-sprite">${cards[i]}</div>`
     }
 }
 
 function updateDealerCards() {
-    dealerCardsEl.textContent = "Cards: "
+    dealerCardsEl.innerHTML = ""
     for (let i = 0; i < dealerCards.length; i++) {
-        dealerCardsEl.textContent += dealerCards[i] + " "
+        dealerCardsEl.innerHTML += `<div class="card-sprite">${dealerCards[i]}</div>`
     }
 }
 
@@ -165,4 +170,18 @@ function dealerTurn() {
         message = "Dealer wins!"
     }
     messageEl.textContent = message
+
+    hideGameBtns()
+}
+
+function hideStartBtn() {
+    startGameBtn.style.display = "none"
+    newCardBtn.style.display = "inline"
+    stayBtn.style.display = "inline"
+}
+
+function hideGameBtns() {
+    startGameBtn.style.display = "inline"
+    newCardBtn.style.display = "none"
+    stayBtn.style.display = "none"
 }
